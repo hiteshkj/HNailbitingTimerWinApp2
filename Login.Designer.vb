@@ -84,6 +84,7 @@ Partial Class Login
         Me.PwdTB.Name = "PwdTB"
         Me.PwdTB.Size = New System.Drawing.Size(551, 20)
         Me.PwdTB.TabIndex = 3
+        Me.PwdTB.UseSystemPasswordChar = True
         '
         'Label2
         '
@@ -112,7 +113,7 @@ Partial Class Login
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Server - "
         '
-        'Login2
+        'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -126,8 +127,8 @@ Partial Class Login
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ServerTB)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Login2"
-        Me.Text = "Login2"
+        Me.Name = "Login"
+        Me.Text = "Login"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
