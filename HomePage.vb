@@ -50,20 +50,24 @@ Public Class HomePage
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Startup()
-        DataGridView1.Update()
+        'DataGridView1.Update()
         LoadDGV()
+        InitForm()
+    End Sub
+
+    Function InitForm()
         DataGridView1.Columns("StartTS").DefaultCellStyle.Format = "dddd, dd MMM yyyy hh:mm:ss tt"
         RecordCount = DataGridView1.Rows.Count
         'MsgBox(RecordCount)
         nooftrieslabel.Text = RecordCount
 
         If RecordCount = 0 Then
-            Me.Text = Me.Text & "     |   App Start - " & DateAndTime.Now()
+            Me.Text = "!!!! *** STOP NAIL BITING *** !!!!     |   App Start - " & DateAndTime.Now()
             Lasttimerdurlabel.Text = "Add records"
         Else
             ResetDate = ds.Tables("HNBMaster").Rows(0)("StartTS")
             CurrentStartTimeLabel.Text = Format(ds.Tables("HNBMaster").Rows(0)("StartTS"), "dddd, dd MMM yyyy hh:mm:ss tt")
-            Me.Text = Me.Text & "     |   App Start - " & Format(ds.Tables("HNBMaster").Rows(RecordCount - 1)("StartTS"), "dddd, dd MMM yyyy hh:mm:ss tt")
+            Me.Text = "!!!! *** STOP NAIL BITING *** !!!!     |   App Start - " & Format(ds.Tables("HNBMaster").Rows(RecordCount - 1)("StartTS"), "dddd, dd MMM yyyy hh:mm:ss tt")
             Lasttimerdurlabel.Text = Sectodur(DateDiff(DateInterval.Second, ds.Tables("HNBMaster").Rows(1)("StartTS"), ds.Tables("HNBMaster").Rows(0)("StartTS")))
         End If
         If RecordCount = 0 Then
@@ -71,9 +75,13 @@ Public Class HomePage
         Else
             ResetButton.Text = "Reset Timer"
         End If
-    End Sub
+#Disable Warning BC42105 ' Function doesn't return a value on all code paths
+    End Function
+#Enable Warning BC42105 ' Function doesn't return a value on all code paths
     Function InsertDGV()
+#Disable Warning IDE0017 ' Simplify object initialization
         Dim cmd As New MySqlCommand
+#Enable Warning IDE0017 ' Simplify object initialization
         cmd.Connection = con
         Rowid = Convert.ToInt64(RecordCount) + 1
         'MsgBox(Rowid)
@@ -114,5 +122,11 @@ Public Class HomePage
         End If
 #Disable Warning BC42105 ' Function doesn't return a value on all code paths
     End Function
+#Enable Warning BC42105 ' Function doesn't return a value on all code paths
+    Private Sub RefreshButton_Click(sender As Object, e As EventArgs) Handles RefreshButton.Click
+        LoadDGV()
+        InitForm()
+#Disable Warning BC42105 ' Function doesn't return a value on all code paths
+    End Sub
 #Enable Warning BC42105 ' Function doesn't return a value on all code paths
 End Class

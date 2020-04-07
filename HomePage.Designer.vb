@@ -41,6 +41,7 @@ Partial Class HomePage
         Me.ProgressBar1Label = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DBStatusLabel = New System.Windows.Forms.Label()
+        Me.RefreshButton = New System.Windows.Forms.Button()
         Me.StatsGBox.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -201,12 +202,22 @@ Partial Class HomePage
         Me.DBStatusLabel.TabIndex = 13
         Me.DBStatusLabel.Text = "DBStatusLabel"
         '
-        'Form1
+        'RefreshButton
+        '
+        Me.RefreshButton.Location = New System.Drawing.Point(106, 66)
+        Me.RefreshButton.Name = "RefreshButton"
+        Me.RefreshButton.Size = New System.Drawing.Size(75, 23)
+        Me.RefreshButton.TabIndex = 14
+        Me.RefreshButton.Text = "Refresh"
+        Me.RefreshButton.UseVisualStyleBackColor = True
+        '
+        'HomePage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(674, 261)
+        Me.Controls.Add(Me.RefreshButton)
         Me.Controls.Add(Me.DBStatusLabel)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ProgressBar1Label)
@@ -215,9 +226,8 @@ Partial Class HomePage
         Me.Controls.Add(Me.TimerLabel)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.StatsGBox)
-        Me.Name = "Form1"
+        Me.Name = "HomePage"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "!!!! *** STOP NAIL BITING *** !!!!"
         Me.StatsGBox.ResumeLayout(False)
         Me.StatsGBox.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -241,4 +251,5 @@ Partial Class HomePage
     Friend WithEvents Label3 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DBStatusLabel As Label
+    Friend WithEvents RefreshButton As Button
 End Class

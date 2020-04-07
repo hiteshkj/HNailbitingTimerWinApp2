@@ -48,7 +48,6 @@ Partial Class Login
         Me.DBNameTB.Name = "DBNameTB"
         Me.DBNameTB.Size = New System.Drawing.Size(551, 20)
         Me.DBNameTB.TabIndex = 4
-        Me.DBNameTB.UseWaitCursor = True
         '
         'Label4
         '
